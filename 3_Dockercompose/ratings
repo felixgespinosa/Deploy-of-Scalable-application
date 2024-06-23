@@ -1,0 +1,19 @@
+#Se parte de imagen node
+FROM node:12.18.1-slim
+
+#Se copian ficheros
+COPY practica_creativa2/bookinfo/src/ratings/package.json /opt/microservices/
+COPY practica_creativa2/bookinfo/src/ratings/ratings.js /opt/microservices/
+
+#Se crea la variable de entorno
+ENV SERVICE_VERSION=v1
+
+#Se insyalan las dependencias
+WORKDIR /opt/microservices
+RUN npm install
+
+#Se expone el puerto 9080
+EXPOSE 9080
+
+#Se ejecuta el servicio en puerto 9080
+CMD ["node", "ratings.js", "9080"]

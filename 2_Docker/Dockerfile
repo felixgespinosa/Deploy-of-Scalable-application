@@ -1,0 +1,25 @@
+#Partimos de una imagen base debian 10
+FROM debian:buster
+
+#Se instala python3 y pip3
+RUN apt-get update
+RUN apt-get install -y python3-pip
+
+#Se instala git y se clona el repositorio
+RUN apt-get install -y git
+RUN git clone https://github.com/CDPS-ETSIT/practica_creativa2.git /usr/src/app
+
+#Trabajaremos en el directorio app
+WORKDIR /usr/src/app
+
+#Editamos dependencias e instalamos librerias  
+RUN sed -i 's/requests==2.21.0/requests/g' bookinfo/src/productpage/requirements.txt
+RUN pip3 install -r bookinfo/src/productpage/requirements.txt
+
+# Cambiamos el título de la página productpage para que muestre el número de grupo
+ENV GRUPO_NUMERO=07
+RUN numero_grupo=$GRUPO_NUMERO \
+    && sed -i "s|Simple Bookstore App|Simple Bookstore App Grupo: $numero_grupo|g" bookinfo/src/productpage/templates/productpage.html
+
+# Ejecutamos la aplicación en el puerto 9080
+CMD ["python3", "bookinfo/src/productpage/productpage_monolith.py", "9080"]
