@@ -1,7 +1,7 @@
 
 # Creativa 2 for CDPS
 
-This project aims to evaluate different technologies for the deployment of application services with the ultimate golad of making a reliable and scalable application.
+This project aims to evaluate different technologies for the deployment of application services with the ultimate goal of making a reliable and scalable application.
 The Google Cloud infrastructure will be used to deploy the technologies in different virtual machines bases on a Debian GNU/Linux 10 (buster) image.
 
 
