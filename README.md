@@ -17,3 +17,6 @@ The services are productpage, details, reviews, and ratings. With the Docker-Com
 ###  Microservices application using K8s deployment
 This last section is the same than above but using Kubernetes instead.
 For the deployment, the starting point is the images constructed in the previous sections. To be able to use them in a simple way, they have been saved in dockerhub, where they are publicly accessible.
+
+
+<img width="1053" alt="Captura de pantalla 2024-06-23 a las 21 40 17" src="https://github.com/felixgespinosa/Deploy-of-Scalable-application/assets/115037849/d641dc08-336f-4187-a8b9-603a3005f767">
